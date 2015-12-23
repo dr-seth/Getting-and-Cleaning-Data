@@ -15,8 +15,35 @@ Here are the data for the project:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
  You should create one R script called run_analysis.R that does the following. 
-Merges the training and the test sets to create one data set.
-Extracts only the measurements on the mean and standard deviation for each measurement. 
-Uses descriptive activity names to name the activities in the data set
-Appropriately labels the data set with descriptive variable names. 
-From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+# Explanation of Code
+
+#### Required Packages   
+```data.table``` 
+
+#### Load activity labels, features labels and features  
+Load in the data tables that the ```activity labels```, ```feature labels``` and ```features``` are derived from
+
+#### Extract mean and standard deviation data
+Only the ```mean``` and ```std``` data are required for this project. Extract these data using the ```features``` varrible defined above and create intermediate varriables ```feature_wanted``` and ```feature_labels``` to clean up column headers
+
+#### Load training sets
+Read in only the data for mean and std by leveraging the ```feature_label``` varriable as well as loading the training subjects and activities. The combine the individual training set varriables (```traning_set ```, ```training_subject ```, ```training_activities ```) into a single data table ```training_set```
+
+#### load test sets
+Read in only the data for mean and std by leveraging the ```feature_label``` varriable as well as loading the test subjects and activities. The combine the individual training set varriables (```test_set ```, ```test_subject ```, ```test_activities ```) into a single data table ```test_set```
+
+#### merge training and test sets with labels
+Create a data table ```all_data``` that combines the tables stored in ```training_set``` and ```test_set``` andAdd column headers to the table
+
+#### turn activities & subjects into factors
+The activity and subject data are being stored as characters and need to be converted to factors
+ 
+#### Write output file
+Output the data table ```all_data``` as a text firle 'tidy.txt'
+
+
