@@ -20,10 +20,11 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 3. Uses descriptive activity names to name the activities in the data set
 4. Appropriately labels the data set with descriptive variable names. 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
 # Explanation of Code
 
-#### Required Packages   
-```data.table``` 
+#### Required Packages 
+data.table 
 
 #### Load activity labels, features labels and features  
 Load in the data tables that the ```activity labels```, ```feature labels``` and ```features``` are derived from
