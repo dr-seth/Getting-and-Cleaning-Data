@@ -4,7 +4,7 @@ require(data.table)
 # Check if file exists and download if it does not
 if (!file.exists("~/R-wd/UCI HAR Dataset/activity_labels.txt")) {
   fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-  download.file(fileURL, destfile = "~/R-wd")
+  download.file(fileURL, destfile = "~/R-wd/getdata-projectfiles-UCI HAR Dataset.zip")
   unzip("getdata-projectfiles-UCI HAR Dataset.zip")
   date = Sys.Date()
 }
