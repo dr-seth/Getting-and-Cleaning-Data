@@ -1,6 +1,14 @@
 # Required Packages
 require(data.table)
 
+# Check if file exists and download if it does not
+if (!file.exists("~/R-wd/UCI HAR Dataset/activity_labels.txt")) {
+  fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  download.file(fileURL, destfile = "~/R-wd")
+  unzip("getdata-projectfiles-UCI HAR Dataset.zip")
+  date = Sys.Date()
+}
+
 # Load activity labels, feature labels and features 
 activities <- read.table("~/R-wd/UCI HAR Dataset/activity_labels.txt")
 activities[,2] <- as.character(activities[,2])
